@@ -1,6 +1,8 @@
-const sudoku = require('./sudoku');
-const data = require('./sudoku.fake.data');
+const SudokuValidator = require('./sudoku-validator');
+const data = require('./sudoku-fake-data');
 const { emptyGame, multiBoardGame } = data;
+
+const sudoku = new SudokuValidator();
 
 describe('Games', () => {
   
