@@ -1,26 +1,40 @@
-const isValidGame = (game) => {
-    return game.length === 1;
+const CONSTANTS = {
+  VALID: {
+    GAME: { LENGTH: 1 },
+    GRID: { LENGTH: 9 },
+    BOARD: { LENGTH: 9 },
+    SQUARE: { MAX: 9, MIN: 0 }
+  }
 };
 
+// -- GAME --
+const isValidGame = (game) => 
+  game.length === CONSTANTS.VALID.GAME.LENGTH;
+
+// -- BOARD --
 const isValidBoard = (board) => 
-    isValidBoardLength(board.length);
+  isValidBoardLength(board.length);
 
-const isValidBoardLength = (len) => len === 9;
+const isValidBoardLength = (len) => 
+  len === CONSTANTS.VALID.BOARD.LENGTH;
 
-const hasDupeInColumns = (board) => {
-    [0,1,2,3,4,5,6,7,8].map(i => board[i])
-}
+// -- GRID --
+const isValidGrid = (grid) => 
+  isValidGridLength(grid.length) && 
+  grid.every(square => isValidSquare(square));
 
-const hasDupeInRows = (board) => {
-    
-}
+const isValidGridLength = (len) => 
+  len === CONSTANTS.VALID.GRID.LENGTH;
 
-const isValidGrid = (grid) => {
-    return true;
-};
+// -- SQUARE --
+const isValidSquare = (square) => 
+  Number.isInteger(square) && 
+  square >= CONSTANTS.VALID.SQUARE.MIN && 
+  square <= CONSTANTS.VALID.SQUARE.MAX;
 
 module.exports = {
-    isValidGame,
-    isValidBoard,
-    isValidGrid
+  isValidGame,
+  isValidBoard,
+  isValidGrid,
+  isValidSquare
 };

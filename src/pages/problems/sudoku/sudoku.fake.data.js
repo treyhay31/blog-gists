@@ -10,8 +10,8 @@ const emptyGame = [emptyBoard];
 const multiBoardGame = [emptyBoard, emptyBoard];
 
 module.exports = {
-    emptyGrid,
-    emptyBoard,
-    emptyGame,
-    multiBoardGame
+  emptyGrid,
+  emptyBoard,
+  emptyGame,
+  multiBoardGame
 }
