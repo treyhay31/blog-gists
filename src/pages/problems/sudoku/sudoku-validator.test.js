@@ -86,7 +86,7 @@ describe('Squares', () => {
     it('should not accept anything below 0', () => {
       expect(sudoku.isValidSquare(-1)).toBe(false);
     });
-    it('should not accept anything below 0', () => {
+    it('should not accept anything above 9', () => {
       expect(sudoku.isValidSquare(10)).toBe(false);
     });
   });
