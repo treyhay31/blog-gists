@@ -10,7 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "jest": "^23.6.0"
+    "jest": "^23.6.0",
+    "npm": "^6.4.1"
   },
   "quokka": {
     "babel": true
