@@ -8,7 +8,8 @@ class SudokuValidatorAdvanced extends SudokuValidator {
 	}
 
 	isValidRow(row) {
-		return true;
+		const dupeChecker = new Set();
+		row.map(r => dupeChecker.has(r))
 	}
 	//... no dupes in row
 		//... no dupes in col
