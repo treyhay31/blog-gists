@@ -6,8 +6,11 @@ const sudoku = new SudokuValidatorAdvanced();
 
 describe('Rows', () => {
   describe('Valid', () => {
-    it('should not have any duplicates', () => {
+    it('should return true if no duplicates', () => {
       expect(sudoku.isValidRow([1,2,3,4,5,6,7,8,9])).toBe(true);
+    });
+    it('should return true if only duplicates are zero', () => {
+      expect(sudoku.isValidRow([0,0,0,0,5,6,7,8,9])).toBe(true);
     });
 	});
 	describe('Invalid', () => {

@@ -1,21 +1,38 @@
 const CONSTANTS = require('./sudoku-constants');
 const SudokuValidator = require('./sudoku-validator');
 
-class SudokuValidatorAdvanced extends SudokuValidator {
-  constructor(props) {
-		super(props);
+const isDuplicate = false;
+const getDupeChecker = () => [
+	isDuplicate,
+	isDuplicate,
+	isDuplicate,
+	isDuplicate,
+	isDuplicate,
+	isDuplicate,
+	isDuplicate,
+	isDuplicate,
+	isDuplicate,
+];
 
+class SudokuValidatorAdvanced extends SudokuValidator {
+  	constructor(props) {
+		super(props);
+	}
+
+	isNonZero(square) {
+		return square !== 0;
 	}
 
 	isValidRow(row) {
-		const dupeChecker = new Set();
-		row.map(r => dupeChecker.has(r))
+		const nonZeroSquares = row.filter(this.isNonZero);
+		const distinctSquares =  new Set(nonZeroSquares);
+		
+		return nonZeroSquares.length === (distinctSquares.size) 
 	}
-	//... no dupes in row
-		//... no dupes in col
-			//... no dupes in grid
+
+	//... no dupes in col
+
+	//... no dupes in grid
 };
-
-
 
 module.exports = SudokuValidatorAdvanced;
