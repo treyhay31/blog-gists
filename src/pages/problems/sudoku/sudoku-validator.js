@@ -30,10 +30,7 @@ class SudokuValidator {
     return Number.isInteger(square) && 
       square >= CONSTANTS.VALID.SQUARE.MIN && 
       square <= CONSTANTS.VALID.SQUARE.MAX;
-  }
-    
+  }    
 };
-
-
 
 module.exports = SudokuValidator;

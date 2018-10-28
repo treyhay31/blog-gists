@@ -1,38 +1,52 @@
-const CONSTANTS = require('./sudoku-constants');
 const SudokuValidator = require('./sudoku-validator');
-
-const isDuplicate = false;
-const getDupeChecker = () => [
-	isDuplicate,
-	isDuplicate,
-	isDuplicate,
-	isDuplicate,
-	isDuplicate,
-	isDuplicate,
-	isDuplicate,
-	isDuplicate,
-	isDuplicate,
-];
 
 class SudokuValidatorAdvanced extends SudokuValidator {
   	constructor(props) {
 		super(props);
 	}
 
+	isValidRow(board, rowIndex) {
+		return this.hasNoDuplicates(
+			this.getRow(board, rowIndex));
+	}
+
+	isValidCol(board, colIndex) {
+		return this.hasNoDuplicates(
+			this.getCol(board, colIndex)); 
+	}
+
+	isValidGrid(board, gridIndex) {
+		return this.hasNoDuplicates(
+			this.getGrid(board, gridIndex));
+	}
+
+	getRow(board, i) {
+		return board[i];
+	}
+	
+	getCol(board, i) {
+		return board.map(row => row[i]);
+	}
+
+	getGrid(board, i) {
+		return [
+			...board[i].slice(),
+			...board[i].slice(),
+			...board[i].slice()
+		];			
+	}
+
 	isNonZero(square) {
 		return square !== 0;
 	}
 
-	isValidRow(row) {
-		const nonZeroSquares = row.filter(this.isNonZero);
+	hasNoDuplicates(arr) {
+		const nonZeroSquares = arr.filter(this.isNonZero);
+	
 		const distinctSquares =  new Set(nonZeroSquares);
 		
 		return nonZeroSquares.length === (distinctSquares.size) 
 	}
-
-	//... no dupes in col
-
-	//... no dupes in grid
 };
 
 module.exports = SudokuValidatorAdvanced;
