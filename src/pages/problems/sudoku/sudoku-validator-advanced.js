@@ -1,21 +1,31 @@
 const SudokuValidator = require('./sudoku-validator');
 
 class SudokuValidatorAdvanced extends SudokuValidator {
-  	constructor(props) {
+  constructor(props) {
 		super(props);
 	}
 
+	indexChecker(i) {
+		if (i > 8 || i < 0) throw new Error("Out of sudoku bounds!");
+	}
+
 	isValidRow(board, rowIndex) {
+		this.indexChecker(rowIndex);
+		
 		return this.hasNoDuplicates(
 			this.getRow(board, rowIndex));
 	}
 
 	isValidCol(board, colIndex) {
+		this.indexChecker(colIndex);
+
 		return this.hasNoDuplicates(
 			this.getCol(board, colIndex)); 
 	}
 
 	isValidGrid(board, gridIndex) {
+		this.indexChecker(gridIndex);
+
 		return this.hasNoDuplicates(
 			this.getGrid(board, gridIndex));
 	}
@@ -30,9 +40,9 @@ class SudokuValidatorAdvanced extends SudokuValidator {
 
 	getGrid(board, i) {
 		return [
-			...board[i].slice(),
-			...board[i].slice(),
-			...board[i].slice()
+			...board[i + 0].slice(0, 3),
+			...board[i + 1].slice(0, 3),
+			...board[i + 2].slice(0, 3)
 		];			
 	}
 
@@ -43,7 +53,7 @@ class SudokuValidatorAdvanced extends SudokuValidator {
 	hasNoDuplicates(arr) {
 		const nonZeroSquares = arr.filter(this.isNonZero);
 	
-		const distinctSquares =  new Set(nonZeroSquares);
+		const distinctSquares = new Set(nonZeroSquares);
 		
 		return nonZeroSquares.length === (distinctSquares.size) 
 	}

@@ -14,6 +14,19 @@ const invalidBoard = [
 /* --> --> --> --> --> */
 ];
 
+const validBoard = [
+  [1,2,3, 4,5,6, 7,8,9],
+  [7,8,9, 1,2,3, 4,5,6],
+  [4,5,6, 7,8,9, 1,2,3],
+  
+  [9,1,2, 3,4,5, 6,7,8],
+  [6,7,8, 9,1,2, 3,4,5],
+  [3,4,5, 6,7,8, 9,1,2],
+  
+  [8,9,1, 2,3,4, 5,6,7],
+  [5,6,7, 8,9,1, 2,3,4],
+  [2,3,4, 5,6,7, 8,9,1],
+];
 
 const emptyGrid = [0,0,0,0,0,0,0,0,0];
 
@@ -31,5 +44,6 @@ module.exports = {
   emptyBoard,
   emptyGame,
   multiBoardGame,
-  invalidBoard
+  invalidBoard,
+  validBoard
 };

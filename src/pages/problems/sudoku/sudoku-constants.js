@@ -1,10 +1,15 @@
-const CONSTANTS = {
+module.exports = {
   VALID: {
     GAME: { LENGTH: 1 },
     GRID: { LENGTH: 9 },
     BOARD: { LENGTH: 9 },
     SQUARE: { MAX: 9, MIN: 0 }
+  },
+  ROWS: { TOP: 0, BOTTOM: 8, FIRST: 0, SECOND: 1, THIRD: 2, FOURTH: 3, FIFTH: 4, SIXTH: 5, SEVENTH: 6, EIGHTH: 7, NINTH: 8 },
+  COLS: { LEFT: 0, RIGHT: 8, FIRST: 0, SECOND: 1, THIRD: 2, FOURTH: 3, FIFTH: 4, SIXTH: 5, SEVENTH: 6, EIGHTH: 7, NINTH: 8 },
+  GRIDS: { 
+    TOP_LEFT: 0, TOP_CENTER: 1, TOP_RIGHT: 2, 
+    MID_LEFT: 3, MID_CENTER: 4, MID_RIGHT: 5, 
+    BOT_LEFT: 6, BOT_CENTER: 7, BOT_RIGHT: 8 
   }
 };
-
-module.exports = CONSTANTS;
