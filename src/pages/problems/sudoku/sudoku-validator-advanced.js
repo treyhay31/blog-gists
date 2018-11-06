@@ -1,5 +1,5 @@
 const SudokuValidator = require('./sudoku-validator');
-const {START, END} = require('./sudoku-constants');
+const { START } = require('./sudoku-constants');
 
 class SudokuValidatorAdvanced extends SudokuValidator {
   constructor(props) {
