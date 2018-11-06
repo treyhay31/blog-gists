@@ -11,5 +11,8 @@ module.exports = {
     TOP_LEFT: 0, TOP_CENTER: 1, TOP_RIGHT: 2, 
     MID_LEFT: 3, MID_CENTER: 4, MID_RIGHT: 5, 
     BOT_LEFT: 6, BOT_CENTER: 7, BOT_RIGHT: 8 
-  }
+  },
+  START: [0,0,0, 3,3,3, 6,6,6],
+  END:   [2,2,2, 5,5,5, 8,8,8],
+  
 };

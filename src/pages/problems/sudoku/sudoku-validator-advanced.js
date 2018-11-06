@@ -1,4 +1,5 @@
 const SudokuValidator = require('./sudoku-validator');
+const {START, END} = require('./sudoku-constants');
 
 class SudokuValidatorAdvanced extends SudokuValidator {
   constructor(props) {
@@ -39,10 +40,12 @@ class SudokuValidatorAdvanced extends SudokuValidator {
 	}
 
 	getGrid(board, i) {
+		const start = START[i];
+		const end = start + 3;
 		return [
-			...board[i + 0].slice(0, 3),
-			...board[i + 1].slice(0, 3),
-			...board[i + 2].slice(0, 3)
+			...board[start + 0].slice(start, end),
+			...board[start + 1].slice(start, end),
+			...board[start + 2].slice(start, end)
 		];			
 	}
 
